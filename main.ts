@@ -152,7 +152,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
 })
 let SwordSwungAnimation = false
 let SwordSwung = false
-let thing_oisin_wanted: Sprite = null
 let player2: Sprite = null
 let Direction = 0
 let isMoving = false
@@ -205,12 +204,14 @@ let mySprite = sprites.create(img`
     ......cccdd555dcccccc...
     ........cccccccc........
     `, SpriteKind.Enemy)
+mySprite.setPosition(16, 63)
+mySprite.setPosition(62, 53)
+mySprite.setPosition(106, 41)
 controller.moveSprite(player2, 75, 75)
 scene.cameraFollowSprite(player2)
 player2.setPosition(0, 10)
 mySprite.follow(player2, 65)
-thing_oisin_wanted.setPosition(0, 10)
-thing_oisin_wanted = sprites.create(img`
+let thing_oisin_wanted = sprites.create(img`
     11111111111111111111111111111111
     11111111111111111111111111111111
     11111111111111111111111111111111
@@ -346,9 +347,13 @@ thing_oisin_wanted = sprites.create(img`
     11111111111111111111111111111111
     11111111111111111111111111111111
     `, SpriteKind.square)
+thing_oisin_wanted.setPosition(135, 109)
 forever(function () {
     if (level == 1) {
         music.play(music.stringPlayable("A G A B - A G A ", 120), music.PlaybackMode.UntilDone)
+    }
+    if (level == 3) {
+        music.play(music.stringPlayable("E B C5 A B G A F ", 120), music.PlaybackMode.LoopingInBackground)
     }
 })
 forever(function () {
